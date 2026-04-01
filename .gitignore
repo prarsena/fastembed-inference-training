@@ -25,3 +25,5 @@ qdrant_storage/
 
 # macOS
 .DS_Store
+
+eytomology.py
