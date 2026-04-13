@@ -2,3 +2,4 @@ qdrant_client
 fastembed
 dotenv
 huggingface_hub
+apple-fm-sdk

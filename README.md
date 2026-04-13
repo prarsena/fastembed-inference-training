@@ -23,3 +23,8 @@ pip install -r req.txt
 ```
 
 Uses the hf model: https://huggingface.co/BAAI/bge-small-en-v1.5
+
+
+# Apple-FM
+
+The apple-fm is now the most exciting part. Tip: install glow to view the responses in markdown.

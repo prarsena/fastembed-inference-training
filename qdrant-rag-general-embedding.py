@@ -1,5 +1,6 @@
 import json
 import englishLanguageData                                  ## Assumes you have englishLanguageData.py
+from openai import OpenAI
 from qdrant_client import QdrantClient, models
 from dotenv import load_dotenv
 from huggingface_hub import login, whoami
@@ -7,7 +8,6 @@ from huggingface_hub import login, whoami
 ##  1. Setup 
 
 load_dotenv()                                                   # Load env vars
-#print(whoami())                                                 # Test HF login function
 
 # client = QdrantClient(host="localhost", port=6333)            # If using persistant Qdrant.
 client = QdrantClient(":memory:")                               # Qdrant is running from RAM.
@@ -54,6 +54,8 @@ search_result = client.query_points(
 results_as_dicts = [point.model_dump() for point in search_result]
 #print(json.dumps(results_as_dicts, indent=4, sort_keys=True))
 
+retrieved_context    = results_as_dicts[0]["payload"]
 retrieved_word       = results_as_dicts[0]["payload"]["word"]
 retrieved_definition = results_as_dicts[0]["payload"]["definition"]
+
 print(f"Retrieved: {retrieved_word} - {retrieved_definition}")
